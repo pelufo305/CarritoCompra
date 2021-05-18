@@ -27,11 +27,7 @@ namespace ShoppingCart.Api.Controllers
         [HttpPost]
         public object Post([FromBody]OrderModel model)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
+           
             var command = _mapper.Map<CreateOrder>(model);
             _handler.Handle(command);
 
