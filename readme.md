@@ -1,7 +1,8 @@
 # Shopping Cart Demo Application
-## Angular / .NET Core
 
 github: https://github.com/pelufo305/CarritoCompra
+
+## Angular / .NET Core
 
 This application demonstrates a basic online shopping experience using an Angular front-end and .NET Core back-end.  The user can:
 - Browse a list of products.
