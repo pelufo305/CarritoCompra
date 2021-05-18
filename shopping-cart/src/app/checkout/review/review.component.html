@@ -1,0 +1,41 @@
+<div *ngIf="!result || !result.success">
+    <h3>Resumen de la Orden</h3>
+
+    <div *ngIf="result && !result.success">
+        <p class="alert alert-danger">Su orden a fallado intentelo de nuevo.</p>
+    </div>
+
+    <h4>Productos
+        <a class="float-right" routerLink="/cart">Edit</a>
+    </h4>
+
+    <ul>
+        <li *ngFor="let selection of cart.selections">
+            <td>{{selection.product.name}} ({{selection.quantity}})</td>
+        </li>
+    </ul>
+
+    <div class="shadow-sm p-3 mb-5 bg-white rounded">Total: {{subTotal() | currency}}</div>
+
+    <h4>Información de Pago
+        <a class="float-right" routerLink="/checkout/billing">Edit</a>
+    </h4>
+
+    <ul>
+        <li>Numero de Tarjeta: {{checkoutService.paymentInformation.maskedCardNumber()}}</li>
+        <li>Expiración: {{checkoutService.paymentInformation.expirationMonth}}/{{checkoutService.paymentInformation.expirationYear}}</li>
+    </ul>
+
+    <h4>Información de envio
+        <a class="float-right" routerLink="/checkout/shipping">Edit</a>
+    </h4>
+
+    <p>{{checkoutService.shippingInformation.name}}
+        <br/> {{checkoutService.shippingInformation.street}}
+        <br/> {{checkoutService.shippingInformation.city}} {{checkoutService.shippingInformation.state | uppercase}} {{checkoutService.shippingInformation.zip}}
+    </p>
+
+    <button (click)="submitOrder()">Aceptar Orden</button>
+</div>
+
+<app-confirmation *ngIf="result && result.success" [confirmationNumber]="result.confirmationNumber"></app-confirmation>

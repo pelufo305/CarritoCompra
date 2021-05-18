@@ -1,0 +1,28 @@
+<h1>Your Cart</h1>
+<div *ngIf="cart.selections.length">
+    <div class="shadow-sm p-3 mb-5 bg-white rounded">Total: {{subTotal() | currency}}</div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Producto</th>
+                <th scope="col">Valor</th>
+                <th scope="col">Cantidad</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let selection of cart.selections">
+                <td>{{selection.product.name}}</td>
+                <td>{{selection.product.price | currency}}</td>
+                <td>
+                    <input #quantity [value]="selection.quantity" type="number" (change)="onQuantityChange(selection, quantity.value)" min="1" required />
+                </td>
+                <td><button (click)="remove(selection.product)">Remover</button></td>
+            </tr>
+        </tbody>
+    </table>
+    <a class="btn btn-primary" routerLink="/checkout">Aceptar</a>
+</div>
+<div *ngIf="!cart.selections.length">
+    <p>Tu carrito esta vacio <a routerLink="/products">Productos</a>!</p>
+</div>

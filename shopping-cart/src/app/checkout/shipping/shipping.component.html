@@ -1,0 +1,76 @@
+<h3>Shipping Information</h3>
+<form [formGroup]="shippingForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+
+        <div class="col-sm-12 bg-light">
+            <label>
+        * Nombre:
+        <input type="text" class="form-control" formControlName="name" required [ngClass]="{ 'is-invalid': submitAttempted && shippingForm.controls.name.errors }">
+        <div class="invalid-feedback" *ngIf="shippingForm.controls.name.errors?.required">
+          Nombre es requerido.
+        </div>
+      </label>
+        </div>
+
+        <div class="col-sm-12 bg-light">
+            <label>
+        * Dirección:
+        <input type="text" class="form-control" formControlName="street" required [ngClass]="{ 'is-invalid': submitAttempted && shippingForm.controls.street.errors }">
+        <div class="invalid-feedback" *ngIf="shippingForm.controls.street.errors?.required">
+          Dirección requerida.
+        </div>
+      </label>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-4 bg-light">
+            <label>
+        * Barrio:
+        <input type="text" class="form-control" formControlName="city" required [ngClass]="{ 'is-invalid': submitAttempted && shippingForm.controls.city.errors }">
+        <div class="invalid-feedback" *ngIf="shippingForm.controls.city.errors?.required">
+          Barrio.
+        </div>
+      </label>
+        </div>
+        <div class="col-sm-4 bg-light">
+            <div class="form-group">
+                <label for="state">
+          * Ciudad:
+        </label>
+                <select id="state" formControlName="state" required class="custom-select" [ngClass]="{ 'is-invalid': submitAttempted && shippingForm.controls.state.errors }">
+          <option value="">-Select-</option>
+          <option value="JU">Bogota</option>
+          <option value="ME">Medellin</option>
+          <option value="CA">Cali</option>
+          <option value="BA">Barranquilla</option>
+          
+        </select>
+                <div class="invalid-feedback" *ngIf="shippingForm.controls.state.errors?.required">
+                    Ciudad requerida.
+                </div>
+                <div class="invalid-feedback" *ngIf="shippingForm.controls.state.errors?.pattern">
+                    Debe ser una ciudad valida.
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 bg-light">
+            <label>
+        * Codigo Postal:
+        <input type="text" class="form-control" formControlName="zip" required [ngClass]="{ 'is-invalid': submitAttempted && shippingForm.controls.zip.errors }">
+        <div class="invalid-feedback" *ngIf="shippingForm.controls.zip.errors?.required">
+          Codigo Postal requerido.
+        </div>
+        <div class="invalid-feedback" *ngIf="shippingForm.controls.zip.errors?.pattern">
+          Codigo Postal tiene 5 digitos.
+        </div>
+      </label>
+        </div>
+    </div>
+
+    <div class="row">
+        <button class="btn btn-primary" type="submit">Continuar</button>
+        <a class="btn btn-warning" routerLink="/checkout/billing">Atras</a>
+        <a class="btn btn-danger" routerLink="/cart">Cancelar</a>
+    </div>
+</form>
