@@ -1,4 +1,4 @@
-<h1>Your Cart</h1>
+<h1> Tú Carrito</h1>
 <div *ngIf="cart.selections.length">
     <div class="shadow-sm p-3 mb-5 bg-white rounded">Total: {{subTotal() | currency}}</div>
     <table class="table">
@@ -17,7 +17,7 @@
                 <td>
                     <input #quantity [value]="selection.quantity" type="number" (change)="onQuantityChange(selection, quantity.value)" min="1" required />
                 </td>
-                <td><button (click)="remove(selection.product)">Remover</button></td>
+                <td><button class="btn btn-danger" (click)="remove(selection.product)">-</button></td>
             </tr>
         </tbody>
     </table>

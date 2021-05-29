@@ -1,4 +1,4 @@
-<h3>Shipping Information</h3>
+<h3>Información de envio</h3>
 <form [formGroup]="shippingForm" (ngSubmit)="onSubmit()">
     <div class="row">
 
@@ -44,7 +44,7 @@
           <option value="ME">Medellin</option>
           <option value="CA">Cali</option>
           <option value="BA">Barranquilla</option>
-          
+
         </select>
                 <div class="invalid-feedback" *ngIf="shippingForm.controls.state.errors?.required">
                     Ciudad requerida.
@@ -69,8 +69,8 @@
     </div>
 
     <div class="row">
-        <button class="btn btn-primary" type="submit">Continuar</button>
-        <a class="btn btn-warning" routerLink="/checkout/billing">Atras</a>
+        <button class="btn btn-primary" type="submit">Continuar</button>&nbsp;
+        <a class="btn btn-warning" routerLink="/checkout/billing">Atras</a> &nbsp;
         <a class="btn btn-danger" routerLink="/cart">Cancelar</a>
     </div>
 </form>

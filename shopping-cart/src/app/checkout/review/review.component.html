@@ -35,7 +35,7 @@
         <br/> {{checkoutService.shippingInformation.city}} {{checkoutService.shippingInformation.state | uppercase}} {{checkoutService.shippingInformation.zip}}
     </p>
 
-    <button (click)="submitOrder()">Aceptar Orden</button>
+    <button class="btn btn-primary" (click)="submitOrder()">Aceptar Orden</button>
 </div>
 
 <app-confirmation *ngIf="result && result.success" [confirmationNumber]="result.confirmationNumber"></app-confirmation>

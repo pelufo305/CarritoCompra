@@ -7,18 +7,18 @@ using System.Linq;
 namespace ShoppingCart.Products
 {
     /// <summary>
-    /// A mock handler for product data, using the Bogus library: https://github.com/bchavez/Bogus.
+ 
     /// </summary>
     public class MockProductListHandler : IProductListHandler
     {
-        // for demo purposes, we want the same mocked data upon each invocation.
+        
         private const int Seed = 12345;
 
-        // for the demo, we will set a number of products to generate.
+        
         private const int ProductCount = 10;
 
         private readonly Faker<Product> _faker;
-
+        ProductListQuery lstquery = new ProductListQuery();
         public MockProductListHandler()
         {
             var productId = 1;
@@ -26,10 +26,10 @@ namespace ShoppingCart.Products
             _faker = new Faker<Product>()
                 .StrictMode(true)
                 .RuleFor(p => p.ID, _ => productId++)
-                .RuleFor(p => p.Name, "Sandwich Especial "+ productId++)
-                .RuleFor(p => p.Description, "Sandwich realizado con pan integral carnes final y verduras")
+                .RuleFor(p => p.Name, f => f.PickRandom(lstquery.product))
+                .RuleFor(p => p.Description, f => f.PickRandom(lstquery.text))
                 .RuleFor(p => p.Price, f => Math.Round(f.Random.Decimal(4.99m, 99.99m), 2))
-                .RuleFor(p => p.ImageUrl,"https://cdn.kiwilimon.com/recetaimagen/30704/th5-640x426-34299.jpg");
+                .RuleFor(p => p.ImageUrl, f => f.PickRandom(lstquery.image));
         }
 
         public IEnumerable<Product> Handle(ProductListQuery query)

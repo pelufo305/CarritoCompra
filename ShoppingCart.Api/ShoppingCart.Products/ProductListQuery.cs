@@ -5,11 +5,12 @@ using System.Text;
 namespace ShoppingCart.Products
 {
     /// <summary>
-    /// Query object representing the request for a list of products.
+    /// Testing
     /// </summary>
     public class ProductListQuery
     {
-        // could have pagination, sorting, filtering, etc. support
-        // for demo purposes, we are returning all products.
+         public string[] product = { "Sandwich Pollo", "Sandwich Especial", "Sandwich Club", "Sandwich Huevo", "Sandwich Bol" };
+         public string[] text= { "Sandwich con las mejores especias", "Sandwich con las mejores salsas", "Sandwich con las mejores carnes", "Sandwich con las mejores panes" };
+         public string[] image= { "https://cdn.kiwilimon.com/recetaimagen/30704/th5-640x426-34299.jpg",  "https://upload.wikimedia.org/wikipedia/commons/9/9d/Breakfast_sandwich.jpg" };
     }
 }

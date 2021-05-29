@@ -1,22 +1,33 @@
+<br>
+<br>
 <h1>Nuestros Productos</h1>
-<div class="card mb-3" style="max-width: 540px;" *ngFor="let product of products">
-    <div class="row no-gutters">
-        <div class="col-md-4">
-            <img src="{{product.imageUrl}}" class="card-img" alt="{{product.name}}">
-        </div>
-        <div class="col-md-8">
-            <div class="card-body">
-                <h5 class="card-title">{{product.name}}</h5>
-                <p>{{product.description}}</p>
-                <p class="card-text">{{product.price | currency}}</p>
-                <select #quantity>
-          <option *ngFor="let option of quantityOptions" [value]="option">{{option}}</option>
-        </select>
-                <button (click)="addToCart(product, +quantity.value);">Adicionar</button>
+<br>
+<br>
+<div class="row">
+    <div class="col-sm-6 col-md-4 col-lg-3" *ngFor="let product of products">
+        <div class="thumbnail product-wrapper">
+            <div class="row no-gutters">
+                <div class="col-md-12">
+                    <img src="{{product.imageUrl}}" class="card-img" alt="{{product.name}}">
+                </div>
+                <div class="col-md-12">
+                    <div class="card-body">
+
+                        <h5 class="card-title">{{product.name}}</h5>
+                        <p>{{product.description}}</p>
+                        <p class="card-text">{{product.price | currency}}</p>
+                        <select class="form-select" #quantity>
+              <option *ngFor="let option of quantityOptions" [value]="option">{{option}}</option>
+            </select> &nbsp;
+                        <button class="btn btn-primary" (click)="addToCart(product, +quantity.value);">+</button>
+
+                    </div>
+                </div>
+            </div>
+            <div class="alert alert-success" role="alert" *ngIf="productAdded?.id === product.id">
+                Se ha adicionado {{quantity.value}} {{product.name}} a tu <a routerLink="/cart">carrito</a>.
             </div>
         </div>
-    </div>
-    <div class="alert alert-success" role="alert" *ngIf="productAdded?.id === product.id">
-        Se ha adicionado {{quantity.value}} {{product.name}} a tu <a routerLink="/cart">carrito</a>.
+        <br>
     </div>
 </div>
