@@ -13,7 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Products", "Products", "{D9
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Orders", "Orders", "{CCBF4F20-6A84-4CCB-8E74-5096CC996D92}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingCart.Orders.Tests", "ShoppingCart.Orders.Tests\ShoppingCart.Orders.Tests.csproj", "{62ED892E-44D0-4BCA-B71C-6A7A68A4D67B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingCart.Orders.Tests", "ShoppingCart.Orders.Tests\ShoppingCart.Orders.Tests.csproj", "{62ED892E-44D0-4BCA-B71C-6A7A68A4D67B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
